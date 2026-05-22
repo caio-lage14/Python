@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos</title>
+
+</head>
+<body >
+
+    <div style="max-width: 800px;">
+        
+        <h1>Olá, {{ nome }}!</h1>
+        <hr>
+
+        <div >
+            <strong>Perfil do Usuário:</strong> {{ nome }} tem {{ idade }} anos.
+        </div>
+
+        <div>
+            <div >Dados do Dicionário</div>
+            <div >
+                <p ><strong>Nome:</strong> {{ usuario.nome }}</p>
+                <p ><strong>E-mail:</strong> {{ usuario.email }}</p>
+            </div>
+        </div>
+
+        <h3  >Lista dos Alunos</h3>
+        <table >
+            <thead>
+                <tr>
+                    <th>Nome do Aluno</th>
+                    <th>Nota</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aluno in alunos %}
+                <tr>
+                    <td>{{ aluno.nome }}</td>
+                    <td>{{ aluno.nota }}</td>
+                    <td>
+                        {% if aluno.nota >= 7 %}
+                            <span >Aprovado</span>
+                        {% else %}
+                            <span >Reprovado</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>
